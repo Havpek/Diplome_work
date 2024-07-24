@@ -1,17 +1,11 @@
 from MainPage import MainPage
-from DataFields import DataFild
-
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.common.by import By
+from data import *
 
 def test_assertion(chrome_browser):
     main_page = MainPage(chrome_browser)
-    main_page.find_fields()
-    main_page.filling_in_the_fields()
-    main_page.click_submit_button()
-
-    data_fild = DataFild(chrome_browser)
-    data_fild.find_fields()
-    data_fild.get_class_userName()
-    data_fild.get_class_password()
- 
-    assert "success" in data_fild.get_class_userName()
-    assert "success" in data_fild.get_class_password()
+    main_page.filling_in_the_fields('testingfechures', '553085530855308g')
+    user = main_page.click_submit_button()
+    assert user == 'test250995'

@@ -9,13 +9,19 @@ class MainPage:
         self.browser = browser
         self.browser.get(Submit_URL)
     
-    def find_fields(self):
-        self._userName = (By.NAME, "text")
-        self._passsword = (By.NAME, "password")
-    
-    def filling_in_the_fields(self):
-        self.browser.find_element(*self._userName).send_keys(userName)
-        self.browser.find_element(*self._passsword).send_keys(password)
+    def filling_in_the_fields(self, username, password):
+        WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "input[type='text']"))
+        )
+        self.browser.find_element(By.CSS_SELECTOR, "input[type='text']").send_keys(username)
+        self.browser.find_element(By.CSS_SELECTOR, "input[type='password']").send_keys(password)
     
     def click_submit_button(self):
-        WebDriverWait(self.browser, 120, 0,1).until(EC.element_to_be_clickable(self._button)).click()
+        WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, 'button.DjSvCZoKKfoNSmarsEcTS'))
+        )
+        self.browser.find_element(By.CSS_SELECTOR, 'button.DjSvCZoKKfoNSmarsEcTS').click()
+        WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.CSS_SELECTOR, 'span.pulldown.global_action_link.persona_name_text_content'))
+        )
+        return self.browser.find_element(By.CSS_SELECTOR, 'span.pulldown.global_action_link.persona_name_text_content').text
