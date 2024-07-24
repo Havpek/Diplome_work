@@ -1,6 +1,6 @@
 import requests
 import json
-from constance import *
+from constants import *
 import pytest
 
    

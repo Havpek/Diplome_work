@@ -12,3 +12,4 @@ path_list = "/ISteamApps/GetAppList/v2/"
 path_having_no_id = "/IPlayerService/GetOwnedGames/v0001/?key=04AB93DF9A5678857B0742A66A0C7BDA&"
 
 
+Submit_URL = "https://store.steampowered.com/login/?redir=&redir_ssl=1&snr=1_4_4__global-header"
