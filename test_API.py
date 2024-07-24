@@ -33,8 +33,12 @@ def test_get_list():
     assert responce.status_code == 200
     
 def test_get_having_list():
-    
     responce = requests.get(
            Special_URL + path_having)
     assert responce.json()
     assert responce.status_code == 200
+
+def test_get_having_list_no_id():
+    responce = requests.get(
+           Special_URL + path_having_no_id)
+    assert responce.status_code == 400
