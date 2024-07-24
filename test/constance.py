@@ -10,3 +10,5 @@ path_having = "/IPlayerService/GetOwnedGames/v0001/?key=04AB93DF9A5678857B0742A6
 path_mail = "/join/ajaxverifyemail"
 path_list = "/ISteamApps/GetAppList/v2/"
 path_having_no_id = "/IPlayerService/GetOwnedGames/v0001/?key=04AB93DF9A5678857B0742A66A0C7BDA&"
+
+
