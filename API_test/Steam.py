@@ -5,7 +5,7 @@ from constance import *
 
 path_1 = "/contenthub/ajaxgetcontenthubdata?hubtype=freetoplay"
 path_2 = "/freelicense/addfreelicense/21350"
-path_3 = "/IPlayerService/GetOwnedGames/v0001/?key=Token&steamid=Steam_ID"
+path_3 = "/IPlayerService/GetOwnedGames/v0001/?"
 
 class Base:
     def __init__(self, url_1=Base_URL):
@@ -43,7 +43,9 @@ class Special:
               params=games)
         return responce.json()
     
-    def get_having_list(self, appid: int):
-        params = {appid: games}
+    def get_having_list(self, key: str, steamid: str):
+        params = {key: Token,
+                  steamid: Steam_ID
+                  }
         responce = requests.get(self.url_2 + path_3, params=params)
         return responce.json()
